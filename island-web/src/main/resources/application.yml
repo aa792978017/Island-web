@@ -11,6 +11,7 @@ spring:
       filters: stat
       driver-class-name: com.mysql.jdbc.Driver
       #��������
+
       url: jdbc:mysql://119.29.219.27/island?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       username: root
       password: 123456
