@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--对应接口，写入sql语句-->
+
+<mapper namespace="com.wx.islandweb.dao.ExploreDao">
+
+
+    <select id="getAllExploreInfo" resultType="com.wx.islandweb.entity.Explore">
+        SELECT inf.explore_id , inf.content , inf.picture , inf.issue_time , inf.like_number ,
+        inf.share_number , inf.report_number , inf.browse_number , inf.comment_state , sha.user_id ,
+        sha.state , sha.shared_explore_id
+        FROM explore_info  inf , explore_share sha
+        WHERE inf.type = 1 AND inf.explore_id = sha.explore_id
+    </select>
+</mapper>
