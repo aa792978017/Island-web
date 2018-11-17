@@ -1,5 +1,6 @@
 package com.wx.islandweb.controller;
 
+import com.wx.islandweb.entity.Registry;
 import com.wx.islandweb.entity.User;
 import com.wx.islandweb.result.Result;
 import com.wx.islandweb.service.LoginService;
@@ -22,11 +23,9 @@ public class LoginController {
      * @return
      */
     @PostMapping("/login")
-    public Result Login(@RequestBody User loginData){
+    public Result Login(@RequestBody Registry loginData){
         Result result = new Result();
-        User userData = new User();
-        userData.setNeckName(loginData.getNeckName());
-        userData.setPassword(loginData.getPassword());
+        //TODO  登录信息过滤器实现
         result = loginService.login(loginData);
         return result;
 

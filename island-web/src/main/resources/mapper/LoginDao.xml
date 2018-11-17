@@ -10,7 +10,7 @@
     <select id="login" resultType="com.wx.islandweb.entity.User" parameterType="com.wx.islandweb.entity.User">
         SELECT *
         FROM user
-        WHERE neckname = #{loginData.neckName}
+        WHERE nickname = #{loginData.nickName}
     </select>
 
 </mapper>
