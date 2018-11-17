@@ -27,6 +27,12 @@ public class Explore {
 
     private int type;
 
+    private int userId;
+
+    private int state;
+
+    private int sharedExploreId;
+
     public int getExploreId() {
         return exploreId;
     }
@@ -98,4 +104,16 @@ public class Explore {
     public int getType() { return  type; }
 
     public void setType(int type) { this.type = type; }
+
+    public int getUserId() { return  userId; }
+
+    public void setUserId(int userId) { this.userId = userId; }
+
+    public int getState() { return  state; }
+
+    public void setState(int state) { this.state = state; }
+
+    public int getSharedExploreId() { return  sharedExploreId; }
+
+    public void setSharedExploreId(int sharedExploreId) { this.sharedExploreId = sharedExploreId; }
 }
