@@ -3,10 +3,13 @@ package com.wx.islandweb.entity;
 
 import java.util.Date;
 
+/**
+ * 用户个人信息实体类
+ * 用户获取用户个人信息
+ */
 public class User {
     private int userId;
-    private String neckName;
-    private String password;
+    private String nickName;
     private Date birth;
     private int sex;
     private String city;
@@ -20,20 +23,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getNeckName() {
-        return neckName;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNeckName(String neckName) {
-        this.neckName = neckName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public Date getBirth() {
