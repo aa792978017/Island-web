@@ -14,4 +14,24 @@
         FROM explore_info  inf , explore_share sha
         WHERE inf.type = 1 AND inf.explore_id = sha.explore_id
     </select>
+    
+    <insert id="addExplore" useGeneratedKeys="true" keyColumn="explore_id" keyProperty="writeExploreData.exploreId"
+            parameterType="com.wx.islandweb.entity.Explore">
+        INSERT INTO explore_info ( content , issue_time , comment_state , type ) VALUES
+        ( #{writeExploreData.content} , #{writeExploreData.issueTime} , 0 , 1 )
+        <selectKey resultType="int" keyProperty="writeExploreData.exploreId" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    <insert id="addExploreShare">
+        INSERT INTO explore_share ( explore_id , user_id , state ) VALUES
+        ( #{writeExploreData.exploreId} , #{writeExploreData.userId} , 0)
+    </insert>
+
+    <select id="getCommentInfo" resultType="com.wx.islandweb.entity.Comment">
+        SELECT *
+        FROM explore_comment
+        WHERE explore_id = #{exploreId}
+    </select>
 </mapper>

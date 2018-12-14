@@ -1,12 +1,10 @@
 package com.wx.islandweb.controller;
 
+import com.wx.islandweb.entity.Explore;
 import com.wx.islandweb.result.Result;
 import com.wx.islandweb.service.ExploreService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 功能：探索信息处理
@@ -27,6 +25,26 @@ public class ExploreController {
     @PostMapping("/getAllExploreInfo")
     public Result getAllExploreInfo() {
         Result resultMap = exploreService.getAllExploreInfo();
+        return resultMap;
+    }
+    /**
+     * 用户编写探索
+     * @param writeExploreData
+     * @return
+     */
+    @PostMapping("/writeExplore")
+    public Result writeExplore(@RequestBody Explore writeExploreData) {
+        Result result = new Result();
+        result = exploreService.writeExplore(writeExploreData);
+        return result;
+    }
+    /**
+     * 返回探索的评论给前端
+     * @return
+     */
+    @PostMapping("/getCommentInfo")
+    public Result getCommentInfo(@RequestBody int exploreId) {
+        Result resultMap = exploreService.getCommentInfo(exploreId);
         return resultMap;
     }
 }

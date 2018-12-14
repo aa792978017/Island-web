@@ -33,7 +33,7 @@ public class LoginServiceImpl implements LoginService {
         } else {
             result.setCode(233);
             result.setSuccess(true);
-            result.setData(loginData.getUserId());
+            result.setData(trueUser.getUserId());
         }
         return result;
     }
